@@ -52,7 +52,7 @@
 
                     $view = $_GET['page'];
 
-                    include($view . ".php");
+                    include($view . ".php");//
 
                 ?>
             </div>
