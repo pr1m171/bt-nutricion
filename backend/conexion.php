@@ -3,10 +3,10 @@ class conex_mysql {
 	private $conexion;
 
 	public function conectar(){
-		$servername = "localhost";
-		$username = "root";
-		$password = "passwd123";
-		$dbname = "btnutricion";
+		$servername = "logia33.com";
+		$username = "gospina_backend";
+		$password = "keI031w^";
+		$dbname = "gospina_backend";
 		if(!isset($this->conexion)){
 			$this->conexion = mysqli_connect($servername, $username, $password, $dbname);
     		mysqli_query("SET NAMES 'utf8'");

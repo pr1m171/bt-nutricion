@@ -63,7 +63,7 @@
 
                     $mysql = new conex_mysql();
                     $mysql->conectar();
-                    $mysql_result = $mysql->consulta('SELECT * FROM clientes');
+                    $mysql_result = $mysql->consulta('select * from clientes');
                     $mysql->salir();
 
 					
