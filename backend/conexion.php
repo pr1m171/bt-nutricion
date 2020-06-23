@@ -2,27 +2,32 @@
 class conex_mysql {
 	private $conexion;
 
+
+
 	public function conectar(){
-		$servername = "localhost";
-		$username = "gospina_backend";
-		$password = "keI031w^";
-		$dbname = "gospina_backend";
 		if(!isset($this->conexion)){
-			$this->conexion = mysqli_connect($servername, $username, $password, $dbname);
-    		mysqli_query("SET NAMES 'utf8'");
+			$servername = "localhost";
+			$username = "root";
+			$password = "passwd123";
+			$dbname = "btnutricion";
+
+			$this->conexion = new mysqli($servername, $username, $password, $dbname);
+    		$this->conexion->query("SET NAMES 'utf8'");
 		}
 	}
 	
 	public function consulta($sql){
-		$result = mysqli_query($this->conexion, $sql);
+		$result = $this->conexion->query($sql);
 		return $result;
 	}
 
 	public function cont($result){
-  			return mysqli_num_rows($result);
+		 
+  			return $result->num_rows;
+
 	}
 	public function salir(){
-		mysqli_close($this->conexion);
+		$this->conexion->close();
 	}
 }
 ?>

@@ -1,4 +1,8 @@
 <?php include("conexion.php"); ?>
+<?php
+    ///// VARIABLES GLOBALES
+    $nutricionista = 1;
+?>
 <?php include("header.php"); ?>
 <?php include("menu.php"); ?>
 

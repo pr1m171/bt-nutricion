@@ -64,18 +64,18 @@
                     $mysql = new conex_mysql();
                     $mysql->conectar();
                     $mysql_result = $mysql->consulta('select * from clientes');
-                    $mysql->salir();
 
 					
+                    $result = $mysql_result;
 
-					if($mysql->cont($mysql_result)>0){
-					  // output data of each row
-					  while($row = mysqli_fetch_assoc($mysql_result)) {
+                    if ($result->num_rows > 0) {
+                    // output data of each row
+                      while($row = $result->fetch_assoc()) {
 					    ?>
 
 						<tr>
 						    <td><a href="index.php?page=cliente&id=<?php echo $row["id"]; ?>"><?php echo $row["nombre"]; ?><a></td>
-						    <td><?php echo $row["cedula"]; ?></td>
+						    <td><?php echo $row["identificacion"]; ?></td>
 						    <td><?php echo $row["email"]; ?></td>
 						</tr>
 
@@ -84,7 +84,7 @@
                     }
 					
 
-
+                    $mysql->salir();
 					?>
 
 

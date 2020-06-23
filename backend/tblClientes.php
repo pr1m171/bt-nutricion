@@ -1,20 +1,25 @@
 <?php
 
 	function getCampoCliente($id, $campo){
-		$conn = new mysqli($servername, $username, $password, $dbname);
-		$field = "";
-		$sql = "SELECT * FROM clientes WHERE id=".$id;
-		$result = mysqli_query($conn, $sql);
+		$mysql = new conex_mysql();
+        $mysql->conectar();
+        $sql = "select * from clientes where id=".$id;
+        $mysql_result = $mysql->consulta($sql);
 
-		if (mysqli_num_rows($result) > 0) {
+					
+        $result = $mysql_result;
+
+		$field = "";
+		
+		
+
+		if ($result->num_rows > 0) {
 		  // output data of each row
-		  while($row = mysqli_fetch_assoc($result)) {
+		  while($row = $result->fetch_assoc()) {
 		    $field = $row[$campo];
 		  }
-		} else {
-		  
 		}
-		mysqli_close($conn);
+		$mysql->salir();
 		return $field;
 	}
 

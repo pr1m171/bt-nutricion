@@ -40,6 +40,13 @@
     <script src="dist/js/custom.min.js"></script>
     <!--EXTRA JavaScript -->
     <?php echo $extraScript; ?>
+    
+    <?php 
+        if($_GET['page'] == 'calendario'){
+            include("footerCalendar.php");
+        }
+    ?>
+
 </body>
 
 </html>

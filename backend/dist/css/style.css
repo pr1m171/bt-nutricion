@@ -2203,26 +2203,24 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #fff;
-  background-color: #7460ee;
-  border-color: #7460ee; }
+  background-color: #413f3f;
+  border-color: #413f3f; }
   .btn-primary:hover {
     color: #fff;
-    background-color: #563dea;
-    border-color: #4c32e9; }
-  .btn-primary:focus, .btn-primary.focus {
-    box-shadow: 0 0 0 0.2rem rgba(137, 120, 241, 0.5); }
+    background-color: #413f3f;
+    border-color: #413f3f; }
   .btn-primary.disabled, .btn-primary:disabled {
     color: #fff;
-    background-color: #7460ee;
-    border-color: #7460ee; }
+    background-color: #413f3f;
+    border-color: #413f3f; }
   .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
   .show > .btn-primary.dropdown-toggle {
     color: #fff;
-    background-color: #4c32e9;
-    border-color: #4226e8; }
+    background-color: #413f3f;
+    border-color: #413f3f; }
     .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,
     .show > .btn-primary.dropdown-toggle:focus {
-      box-shadow: 0 0 0 0.2rem rgba(137, 120, 241, 0.5); }
+       }
 
 .btn-secondary {
   color: #fff;
@@ -3683,7 +3681,10 @@ input[type="button"].btn-block {
 
 .nav-link {
   display: block;
-  padding: 0.5rem 1rem; }
+  padding: 0.5rem 1rem; 
+  font-size: 22px;
+    font-weight: 600;
+}
   .nav-link:hover, .nav-link:focus {
     text-decoration: none; }
   .nav-link.disabled {
@@ -3698,7 +3699,9 @@ input[type="button"].btn-block {
   .nav-tabs .nav-link {
     border: 1px solid transparent;
     border-top-left-radius: 2px;
-    border-top-right-radius: 2px; }
+    border-top-right-radius: 2px; 
+    color: #4f5467; 
+  }
     .nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
       border-color: #e9ecef #e9ecef #dee2e6; }
     .nav-tabs .nav-link.disabled {
@@ -3707,9 +3710,16 @@ input[type="button"].btn-block {
       border-color: transparent; }
   .nav-tabs .nav-link.active,
   .nav-tabs .nav-item.show .nav-link {
-    color: #4f5467;
+    color: #eb5a2c; 
     background-color: #fff;
-    border-color: #dee2e6 #dee2e6 #fff; }
+    border-color: #dee2e6 #dee2e6 #fff;
+
+  }
+
+  
+ 
+
+
   .nav-tabs .dropdown-menu {
     margin-top: -1px;
     border-top-left-radius: 0;
@@ -3721,7 +3731,7 @@ input[type="button"].btn-block {
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   color: #fff;
-  background-color: #eb5a2c; }
+  background-color: #4f5467; }
 
 .nav-fill .nav-item {
   flex: 1 1 auto;
