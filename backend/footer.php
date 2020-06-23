@@ -38,6 +38,8 @@
     <script src="dist/js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
     <script src="dist/js/custom.min.js"></script>
+    <!--EXTRA JavaScript -->
+    <?php echo $extraScript; ?>
 </body>
 
 </html>

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
@@ -12,6 +13,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
     <title>BT Nutrición - Administración</title>
     <!-- Custom CSS -->
+    <link href="assets/extra-libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
     <link href="assets/libs/chartist/dist/chartist.min.css" rel="stylesheet">
     <link href="assets/extra-libs/c3/c3.min.css" rel="stylesheet">
     <link href="assets/libs/morris.js/morris.css" rel="stylesheet">

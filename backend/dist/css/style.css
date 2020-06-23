@@ -8544,7 +8544,7 @@ html[dir="ltr"] body .p-l-0 {
 *******************/
 .left-part {
   height: 100%;
-  width: 260px;
+  width: 350px;
   position: absolute;
   border-right: 1px solid #e9ecef; }
   .left-part.fixed-left-part {
@@ -8557,10 +8557,10 @@ html[dir="ltr"] body .p-l-0 {
     right: -41px; }
 
 .right-part {
-  width: calc(100% - 260px);
+  width: calc(100% - 350px);
   min-height: calc(100vh - 64px);
   overflow: auto;
-  margin-left: 260px; }
+  margin-left: 350px; }
 
 .reverse-mode .left-part {
   right: 0;
