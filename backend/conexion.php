@@ -3,7 +3,7 @@ class conex_mysql {
 	private $conexion;
 
 	public function conectar(){
-		$servername = "logia33.com";
+		$servername = "localhost";
 		$username = "gospina_backend";
 		$password = "keI031w^";
 		$dbname = "gospina_backend";
