@@ -14,7 +14,7 @@ class conex_mysql {
 	}
 	
 	public function consulta($sql){
-		$result = mysqli_query($sql, $this->conexion);
+		$result = mysqli_query($this->conexion, $sql);
 		return $result;
 	}
 
