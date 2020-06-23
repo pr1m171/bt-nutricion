@@ -14,17 +14,12 @@ class conex_mysql {
 	}
 	
 	public function consulta($sql){
-		$result = mysqli_query($sql, $this->conexion) or die('Consulta fallida: ' . mysql_error());
+		$result = mysqli_query($sql, $this->conexion);
 		return $result;
 	}
 
 	public function cont($result){
-		 if(!is_resource($result)){
-		 	return false;
-		 }else{
   			return mysqli_num_rows($result);
-  		}
-
 	}
 	public function salir(){
 		mysqli_close($this->conexion);
