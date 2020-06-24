@@ -38,13 +38,13 @@
 
 
                         <li class="sidebar-item">
-                            <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                            <a class="sidebar-link has-arrow waves-effect waves-dark" id="activo" href="javascript:void(0)" aria-expanded="false">
                                 <i class="icon-People-onCloud"></i>
                                 <span class="hide-menu"> Clientes</span>
                             </a>
                             <ul aria-expanded="false" class="collapse  first-level">
                                 <li class="sidebar-item">
-                                    <a href="index.php?page=clientes" class="sidebar-link">
+                                    <a href="index.php?page=clientes" id="mis-clientes" class="sidebar-link">
                                         <i class="icon-Record"></i>
                                         <span class="hide-menu">Mis clientes</span>
                                     </a>
@@ -55,6 +55,7 @@
                                         <span class="hide-menu">Mi calendario/turnos</span>
                                     </a>
                                 </li>
+
                             </ul>
                         </li>
 

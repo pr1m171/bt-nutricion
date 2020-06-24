@@ -20,7 +20,7 @@
                     <div class="p-15">
                         <br>
                         <h5 class="card-title"><b>PACIENTE:</b> <?php echo getCampoCliente($_GET['id'], 'nombre'); ?></h5>
-                        <img src="media/<?php echo getCampoCliente($_GET['id'], 'imagen'); ?>" class="img-fluid " alt="users">
+                        <img class="profileClientes" src="media/<?php echo getCampoCliente($_GET['id'], 'imagen'); ?>" class="img-fluid " alt="users">
                         <br><br>
                         <h5 class="card-title"><b>AFILIADO A BODYTECH:</b> <?php echo getCampoCliente($_GET['id'], 'suscripcion'); ?></h5>
                         <h5 class="card-title"><b>ESTADO DE AFILIACIÓN:</b> <?php echo getCampoCliente($_GET['id'], 'estado'); ?></h5>
@@ -218,7 +218,11 @@
 
 <?php
 $extraScript = '
-<script src="assets/extra-libs/datatables.net/js/jquery.dataTables.min.js">
-</script><script src="dist/js/pages/datatable/datatable-basic.init.js"></script>
+    <script>
+    $( document ).ready(function() {
+        $("#activo").addClass("active");
+        $("#mis-clientes").addClass("active");
+     });
+</script>
 ';
 ?>
