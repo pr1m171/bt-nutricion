@@ -61,6 +61,21 @@
 
                         <li class="sidebar-item">
                             <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                <i class="icon-Inbox"></i>
+                                <span class="hide-menu"> Mensajes</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse  first-level">
+                                <li class="sidebar-item">
+                                    <a href="index.php?page=inbox" class="sidebar-link">
+                                        <i class="icon-Record"></i>
+                                        <span class="hide-menu">Bandeja de entrada</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
                                 <i class="icon-Ticket"></i>
                                 <span class="hide-menu"> Tickets</span>
                             </a>
