@@ -20,7 +20,11 @@
                     <div class="p-15">
                         <br>
                         <h5 class="card-title"><b>PACIENTE:</b> <?php echo getCampoCliente($_GET['id'], 'nombre'); ?></h5>
-                        <img class="profileClientes" src="media/<?php echo getCampoCliente($_GET['id'], 'imagen'); ?>" class="img-fluid " alt="users">
+                        <div class="clienteFoto" style="background-image: url("media/"); ">
+
+                        <div class="clienteFoto" style="background-image: url(media/<?php echo getCampoCliente($_GET['id'], 'imagen'); ?>);"></div>
+
+                        </div>
                         <br><br>
                         <h5 class="card-title"><b>AFILIADO A BODYTECH:</b> <?php echo getCampoCliente($_GET['id'], 'suscripcion'); ?></h5>
                         <h5 class="card-title"><b>ESTADO DE AFILIACIÓN:</b> <?php echo getCampoCliente($_GET['id'], 'estado'); ?></h5>

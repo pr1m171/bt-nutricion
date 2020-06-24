@@ -14808,8 +14808,11 @@ File: scss
 
 /* CUSTOM CSS */
 
-.profileClientes{
+.clienteFoto{
   width: 100%;
+  height: 225px;
+  background-size: cover;
+  background-position: top left;
   max-height: 225px;
   object-fit: cover;
   object-position: top left;
