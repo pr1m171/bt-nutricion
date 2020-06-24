@@ -3682,7 +3682,7 @@ input[type="button"].btn-block {
 .nav-link {
   display: block;
   padding: 0.5rem 1rem; 
-  font-size: 22px;
+  font-size: 16px;
     font-weight: 600;
 }
   .nav-link:hover, .nav-link:focus {
