@@ -1,11 +1,18 @@
 <?php
 
+$mysql = new conex_mysql();
+$mysql->conectar();
+
+$mysql_result = $mysql->consulta('UPDATE dieta SET detalle="'.$_POST['detalle'].'", hora="'.$_POST['hora'].'", dia="'.$_POST['dia'].'", fecha="'.$_POST['fecha'].'", idPaciente="'.$_POST['usuario'].'"');
+
+$mysql->salir();
+
+
+$iddieta = $_POST['dieta'];
 
 $mysql = new conex_mysql();
 $mysql->conectar();
-$mysql_result = $mysql->consulta('INSERT INTO dieta (detalle, idPaciente, fecha, hora, dia, idNutricion) VALUES ("'.$_POST['detalle'].'", "'.$_POST['usuario'].'", "'.$_POST['fecha'].'", "'.$_POST['hora'].'", "'.$_POST['dia'].'", "'.$nutricionista.'")');
-
-$iddieta = $mysql->getID();
+$mysql_result = $mysql->consulta('DELETE FROM detalle WHERE iddieta="'.$iddieta.'"');
 $mysql->salir();
 
 echo "IDS: <br>";
@@ -26,6 +33,7 @@ for ($y=0; $y<count($ids);  $y++) {
 }
 
 ?>
+
 <script>
 // similar behavior as an HTTP redirect
 window.location.replace("index.php?page=dieta&id=<?php echo $_POST['usuario']; ?>");

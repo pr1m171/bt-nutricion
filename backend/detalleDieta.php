@@ -78,7 +78,7 @@
 <h3 style="color:#eb5a2c; font-weight: bold;">DETALLE:</h3><br>
         <div class="row">
             <div class="col-md-12">
-                       <form class="m-t-30" method="POST" id="form" action="index.php?page=adddieta">
+                       <form class="m-t-30" method="POST" id="form" action="index.php?page=editdieta">
                             <div class="row">
                                 <div class="col-md-4">
 
@@ -128,7 +128,7 @@
                                         <input type="hidden" value="<?php echo getCampoDieta($_GET['id'], 'dia'); ?>" id="dia" name="dia" />
                                         <input type="hidden" value="<?php echo getCampoDieta($_GET['id'], 'hora'); ?>" id="hora" name="hora" />
                                         <input type="hidden" value="<?php echo getCampoDieta($_GET['id'], 'idPaciente'); ?>" name="usuario" id="usuario">
-
+                                        <input type="hidden" value="<?php echo $_GET['id']; ?>" id="dieta" name="dieta">
                                         <input type="hidden" value="<?php echo $ids; ?>" name="ids" id="ids" />
                                         
                                     </div>
