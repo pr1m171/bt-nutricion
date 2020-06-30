@@ -3,7 +3,7 @@
 $mysql = new conex_mysql();
 $mysql->conectar();
 
-$mysql_result = $mysql->consulta('UPDATE dieta SET detalle="'.$_POST['detalle'].'", hora="'.$_POST['hora'].'", dia="'.$_POST['dia'].'", fecha="'.$_POST['fecha'].'", idPaciente="'.$_POST['usuario'].'"');
+$mysql_result = $mysql->consulta('UPDATE dieta SET detalle="'.$_POST['detalle'].'", hora="'.$_POST['hora'].'", dia="'.$_POST['dia'].'", fecha="'.$_POST['fecha'].'", idPaciente="'.$_POST['usuario'].'" WHERE id="'.$_POST['dieta'].'"');
 
 $mysql->salir();
 
