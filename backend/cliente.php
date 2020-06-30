@@ -25,15 +25,17 @@
                         <div class="clienteFoto" style="background-image: url(media/<?php echo getCampoCliente($_GET['id'], 'imagen'); ?>);"></div>
 
                         </div>
-                        <br><br>
-                        <h5 class="card-title"><b>AFILIADO A BODYTECH:</b> <?php echo getCampoCliente($_GET['id'], 'suscripcion'); ?></h5>
+                        <br>
+                        <h5 class="card-title"><b>AFILIADO A BODYTECH:</b> <?php echo getCampoCliente($_GET['id'], 'afiliado'); ?></h5>
                         <h5 class="card-title"><b>ESTADO DE AFILIACIÓN:</b> <?php echo getCampoCliente($_GET['id'], 'estado'); ?></h5>
+                        <h5 class="card-title"><b>SEDE:</b> <?php echo getCampoCliente($_GET['id'], 'sede'); ?></h5>
+                        <h5 class="card-title"><b>PLAN:</b> <?php echo getCampoCliente($_GET['id'], 'suscripcion'); ?></h5>
+                        <h5 class="card-title"><b>PERSONAL TRAINING:</b> <?php echo getCampoCliente($_GET['id'], 'personaltraining'); ?></h5>
 
                         <hr>
                         <h5 class="card-title"><b>INFORMACIÓN:</b></h5>
 
-                        <br>
-                        
+                                           
                         <h5 class="card-title"><b>Cédula:</b> <?php echo getCampoCliente($_GET['id'], 'identificacion'); ?></h5>
                         <h5 class="card-title"><b>Genero:</b> <?php echo getCampoCliente($_GET['id'], 'sexo'); ?></h5>
                         <?php
@@ -53,6 +55,9 @@
                         <hr>
 
                         <button type="button" class="btn waves-effect waves-light btn-primary" onclick="window.location.href='index.php?page=dieta&id=<?php echo $_GET['id']; ?>'">VER DIETA ASIGNADA</button>
+
+                        <hr>
+                        <br>
 
 
 

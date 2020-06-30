@@ -194,7 +194,7 @@ $(document).ready(function () {
 
         $("#add").click(function(e){
             e.preventDefault();
-            var url = "http://127.0.0.1/bt-nutricion/backend/getAlimentos.php?id=" + $( "#alimento option:selected" ).val();
+            var url = "https://btnutricion.com/backend/getAlimentos.php?id=" + $( "#alimento option:selected" ).val();
             
             $.get(url, function(data, status){
 

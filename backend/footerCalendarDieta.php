@@ -94,7 +94,7 @@
 
 $mysql = new conex_mysql();
 $mysql->conectar();
-$mysql_result = $mysql->consulta("select * from dieta where idNutricion='".$nutricionista."'");
+$mysql_result = $mysql->consulta("select * from dieta where idPaciente='".$_GET['id']."'");
 
 $result = $mysql_result;
 
