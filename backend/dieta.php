@@ -1,3 +1,4 @@
+<?php include("tblClientes.php"); ?>
 <!-- End Sidebar navigation -->
             </div>
             <!-- End Sidebar scroll-->
@@ -15,7 +16,7 @@
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-5 align-self-center">
-                        <h4 class="page-title">Detalle de dieta</h4>
+                        <h4 class="page-title">Detalle de dieta<br> Cliente: <?php echo getCampoCliente($_GET['id'], 'nombre'); ?></h4>
                         <div class="d-flex align-items-center">
 
                         </div>
