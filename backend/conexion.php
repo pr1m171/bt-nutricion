@@ -3,7 +3,6 @@ class conex_mysql {
 	private $conexion;
 
 
-
 	public function conectar(){
 		if(!isset($this->conexion)){
 			$servername = "localhost";
@@ -22,12 +21,21 @@ class conex_mysql {
 	}
 
 	public function cont($result){
-		 
   			return $result->num_rows;
-
 	}
+
+	public function getID(){
+		return $this->conexion->insert_id;
+	}
+
 	public function salir(){
 		$this->conexion->close();
 	}
 }
+
+
+function IsNullOrEmptyString($str){
+    return (!isset($str) || trim($str) === '');
+}
+
 ?>

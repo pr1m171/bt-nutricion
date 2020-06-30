@@ -1,4 +1,5 @@
- <footer class="footer text-center">
+</div>
+<footer class="footer text-center">
                 
             </footer>
             <!-- ============================================================== -->
@@ -44,6 +45,9 @@
     <?php 
         if($_GET['page'] == 'calendario'){
             include("footerCalendar.php");
+        }
+        if($_GET['page'] == 'dieta'){
+            include("footerCalendarDieta.php");
         }
     ?>
 

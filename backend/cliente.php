@@ -52,7 +52,7 @@
                         
                         <hr>
 
-                        <button type="button" class="btn waves-effect waves-light btn-primary">VER DIETA ASIGNADA</button>
+                        <button type="button" class="btn waves-effect waves-light btn-primary" onclick="window.location.href='index.php?page=dieta&id=<?php echo $_GET['id']; ?>'">VER DIETA ASIGNADA</button>
 
 
 
