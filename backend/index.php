@@ -9,8 +9,19 @@
     //VARIABLES GLOBALES
     $nutricionista = 1;
 
+    $rango = $_GET['admin'];
+
     include("header.php");
-    include("menu.php");
+
+
+    if($rango == '1'){
+        include("menu-admin.php");
+    }else{
+        include("menu.php");
+    }
+
+    
+    
 
     $view = $_GET['page'];
     include($view . ".php");
