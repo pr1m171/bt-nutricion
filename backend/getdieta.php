@@ -10,7 +10,7 @@ if($apiKey == "YIY1wZc7McIQcftgN9qz6OTENMtimAh7PBKhirPbf6BYoOK1sg1dTGFTOe9bP4"){
 
     $mysql = new conex_mysql();
     $mysql->conectar();
-    $sql = "select * from dieta where idPaciente='".$_GET['id']."'";
+    $sql = "select * from dieta where idPaciente='".$_GET['id']."' AND dia='" . $_GET['dia'] . "'";
     $mysql_result = $mysql->consulta($sql);
 
     $result = $mysql_result;
