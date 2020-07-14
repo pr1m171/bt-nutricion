@@ -92,7 +92,7 @@
                                     <div class="col-md-12"><label><?php echo getCampoCliente(getCampoDieta($_GET['id'], 'idPaciente'), 'nombre'); ?></label></div>
 
                                     <div class="col-md-12"><label>COMIDA: <?php echo getCampoDieta($_GET['id'], 'detalle'); ?></label></div>
-                                    <div class="col-md-12"><label style="text-transform: uppercase;">DIA: <?php echo getCampoDieta($_GET['id'], 'dia'); ?></label></div>
+                                    <div class="col-md-12"><label style="text-transform: uppercase;">DÍA: <?php echo getCampoDieta($_GET['id'], 'dia'); ?></label></div>
                                     <br>
                                     <div class="col-md-3 cambia"><label for="hora">HORARIO: <r class="ocultar"><?php echo getCampoDieta($_GET['id'], 'hora'); ?></r></label></div>
                                     <div class="col-md-3">
@@ -191,8 +191,7 @@
                                         <input type="hidden" value="<?php echo $ids; ?>" name="ids" id="ids" />
                                         
                                     </div>
-                                    <div class="col-md-1"></div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-7">
                       <div class="alerta">
 
                                     <span id="close">x</span>
@@ -205,7 +204,7 @@
                                 </div>
                                         <br>
                                         <label>(*)  Estos Valores corresponden a 100 gramos de cada alimento.</label><br>
-                                    <table class="tablesaw table-striped table-hover table-bordered table no-wrap tablesaw-columntoggle" id="tabla">
+                                    <table class="table-responsive tablesaw table-striped table-hover table-bordered table">
                                         
                                         <thead>
                                             <tr>
@@ -485,5 +484,8 @@ $(document).ready(function () {
 
             });
   </script>
+  <script src="dist/js/custom.min.js"></script>
+  <script src="assets/libs/tablesaw/dist/tablesaw.jquery.js"></script>
+  <script src="assets/libs/tablesaw/dist/tablesaw-init.js"></script>
 ';
 ?>

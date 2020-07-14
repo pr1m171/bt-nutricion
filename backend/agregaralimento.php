@@ -26,9 +26,15 @@
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item">
-                                        <a href="#">Inicio</a>
+                                        <a href="index.php?page=clientes">Mis clientes</a>
                                     </li>
-                                    <li class="breadcrumb-item active" aria-current="page">Dieta</li>
+                                    <li class="breadcrumb-item">
+                                        <a href="index.php?page=cliente&id=<?php echo $_GET['usuario']; ?>"><?php echo getCampoCliente($_GET['usuario'], 'nombre'); ?></a>
+                                    </li>
+                                    <li class="breadcrumb-item">
+                                        <a href="index.php?page=dieta&id=<?php echo $_GET['usuario']; ?>">Dieta</a>
+                                    </li>
+                                    <li class="breadcrumb-item active" aria-current="page">Detalle</li>
                                 </ol>
                             </nav>
                         </div>
@@ -50,14 +56,26 @@
 
 <div class="row">
     <div class="col-12">
-<h3 style="color:#eb5a2c; font-weight: bold; text-transform: uppercase;">ASIGNAR ALIMENTO.</h3>
-<h5 style="color:#eb5a2c; font-weight: bold; text-transform: uppercase;">HORARIO: &nbsp; <?php echo $_GET['hora']; ?> hs.<br>
-                                                                        DÍA: <?php echo $_GET['dia'] ?></h5><br>
+
         <div class="row">
             <div class="col-md-12">
                        <form class="m-t-30" method="POST" id="form" action="index.php?page=adddieta">
                             <div class="row">
                                 <div class="col-md-4">
+
+                                    <div class="row">
+                                <div class="col-md-12 miblock">
+                                <div class="row">
+                                    <div class="col-md-12"><label><?php echo getCampoCliente($_GET['usuario'], 'nombre'); ?></label></div>
+
+                                    
+                                    <div class="col-md-12"><label style="text-transform: uppercase;">DÍA: <?php echo $_GET['dia']; ?></label></div>
+                                    <br>
+                                    <div class="col-md-3 cambia"><label for="hora">HORARIO: <r class="ocultar"><?php echo $_GET['hora']; ?></r></label></div>
+                                    
+                                </div>
+                                </div>
+                            </div>
 
                                         <label for="detalle">Seleccionar tipo de comida</label>
                                         <select class="form-control" id="detalle" name="detalle">

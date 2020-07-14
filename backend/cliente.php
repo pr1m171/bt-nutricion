@@ -96,14 +96,15 @@
 
                             <!-- Nav tabs -->
 <ul class="nav nav-tabs customtab" role="tablist">
-    <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#home2" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Antecedentes</span></a> </li>
+    <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#messages3" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Perfil Nutricional</span></a> </li>
+    <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#home2" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Antecedentes</span></a> </li>
     <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#profile2" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Perfil Deportivo</span></a> </li>
     <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#messages2" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Perfil Fisiológico</span></a> </li>
-    <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#messages3" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Perfil Nutricional</span></a> </li>
+    
 </ul>
 <!-- Tab panes -->
 <div class="tab-content">
-    <div class="tab-pane p-20 active" id="home2" role="tabpanel">
+    <div class="tab-pane p-20" id="home2" role="tabpanel">
         <h3 style="color:#eb5a2c; font-weight: bold;">PERSONALES:</h3><br>
         <div class="row">
             <div class="col-md-6"><h5 class="card-title"><b>PATOLÓGICOS:</b> <?php echo getCampoCliente($_GET['id'], 'patologicos'); ?></h5></div>
@@ -201,7 +202,7 @@
 
     </div>
 
-    <div class="tab-pane p-20" id="messages3" role="tabpanel">
+    <div class="tab-pane p-20 active" id="messages3" role="tabpanel">
 <?php
         if (!empty($_POST)){
 
@@ -241,12 +242,12 @@
 
         <br><br><h3 style="color:#eb5a2c; font-weight: bold;">HIDRATACIÓN:</h3><br>
         <div class="row">
-            <div class="col-md-3"><h5 class="card-title"><b>CANTIDAD DE AGUA SUGERIDA:</b></h5>
-                <div class="col-md-4"><input type="text" class="form-control" name="agua" value="<?php echo getCampoCliente($_GET['id'], 'agua'); ?>" /></div>
+            <div class="col-md-6"><h5 class="card-title"><b>CANTIDAD DE AGUA SUGERIDA:</b></h5>
+                <div class="col-md-6"><input type="text" class="form-control" name="agua" value="<?php echo getCampoCliente($_GET['id'], 'agua'); ?>" /></div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <h5 class="card-title"><b>HIDRATACIÓN DURANTE ENTRENAMIENTO:</b></h5>
-                <div class="col-md-4"><select name="aguaentrena" id="aguaentrena" class="form-control">
+                <div class="col-md-6"><select name="aguaentrena" id="aguaentrena" class="form-control">
                     <option value="SI" <?php if(getCampoCliente($_GET['id'], 'aguaentrena') == 'SI'){ echo "selected"; } ?>>SI</option>
                     <option value="NO" <?php if(getCampoCliente($_GET['id'], 'aguaentrena') == 'NO'){ echo "selected"; } ?>>NO</option>
                 </select></div>
