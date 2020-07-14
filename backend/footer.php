@@ -50,7 +50,22 @@
             include("footerCalendarDieta.php");
         }
     ?>
-
+<style>
+    .fc-event{
+        border: none !important;
+        border-radius: 0px !important;
+        margin: 0px;
+        margin-top: 1px;
+        padding: 2px;
+    }
+    .fc-day-grid-event{
+        border: none !important;
+        border-radius: 0px !important;
+        margin: 0px;
+        margin-top: 1px;
+        padding: 2px;
+    }
+</style>
 </body>
 
 </html>

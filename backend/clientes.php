@@ -55,6 +55,8 @@
 			            <th>Nombre</th>
 			            <th>Cédula</th>
 			            <th>Email</th>
+                        <th>Fecha de ingreso</th>
+                        <th>Suscripción</th>
 			        </tr>
 			    </thead>
 			    <tbody>
@@ -77,6 +79,8 @@
 						    <td><a href="index.php?page=cliente&id=<?php echo $row["id"]; ?>"><?php echo $row["nombre"]; ?><a></td>
 						    <td><?php echo $row["identificacion"]; ?></td>
 						    <td><?php echo $row["email"]; ?></td>
+                            <td><?php echo $row["fecha_ingreso"]; ?></td>
+                            <td><?php echo $row["suscripcion"]; ?></td>
 						</tr>
 
 					    <?php
@@ -94,6 +98,8 @@
 				        <th>Nombre</th>
 				        <th>Cédula</th>
 				        <th>Email</th>
+                        <th>Fecha de ingreso</th>
+                        <th>Suscripción</th>
 				    </tr>
 				</tfoot>
 			</table>

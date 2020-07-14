@@ -1,4 +1,4 @@
-<?php include("tblClientes.php"); ?>
+
 <!-- End Sidebar navigation -->
             </div>
             <!-- End Sidebar scroll-->
@@ -62,5 +62,13 @@ $extraScript = '
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>
     <script src="dist/fullcalendar/dist/locale/es.js"></script>
+    <script>
+    $( document ).ready(function() {
+        $("#sidebarnav > li:nth-child(4)").addClass("selected");
+        $("#sidebarnav > li.sidebar-item.selected > ul").addClass("in");
+        $("#activo").addClass("active");
+        $("#mis-clientes").addClass("active");
+     });
+</script>
 ';
 ?>

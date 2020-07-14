@@ -55,11 +55,22 @@
                 $mysql = new conex_mysql();
                 $mysql->conectar();
 
-                $mysql_result = $mysql->consulta('UPDATE clientes SET nombre="'.$_POST['nombre'].'", email="'.$_POST['email'].'", password="'.$_POST['password'].'", sexo="'.$_POST['sexo'].'", fecha_nacimiento="'.$_POST['fecha_nacimiento'].'", identificacion="'.$_POST['identificacion'].'", afiliado="'.$_POST['afiliado'].'", estado="'.$_POST['estado'].'", sede="'.$_POST['sede'].'", suscripcion="'.$_POST['suscripcion'].'", personaltraining="'.$_POST['personaltraining'].'" WHERE id="'.$_POST['id'].'"');
+                $mysql_result = $mysql->consulta('INSERT INTO clientes (nombre, email, password, sexo, fecha_nacimiento, identificacion, afiliado, estado, sede, suscripcion, personaltraining) VALUES ("'.$_POST['nombre'].'","'.$_POST['email'].'","'.$_POST['password'].'","'.$_POST['sexo'].'","'.$_POST['fecha_nacimiento'].'","'.$_POST['identificacion'].'","'.$_POST['afiliado'].'","'.$_POST['estado'].'","'.$_POST['sede'].'","'.$_POST['suscripcion'].'","'.$_POST['personaltraining'].'")');
 
                 $mysql->salir();
+        ?>
+                <script>
 
 
+                  // similar behavior as an HTTP redirect
+                window.location.replace("index.php?page=admin-clientes&admin=1");
+
+                // similar behavior as clicking on a link
+                window.location.href = "index.php?page=admin-clientes&admin=1";
+                
+                
+                </script>
+        <?php
             }
         ?>
     </div>  
@@ -68,26 +79,25 @@
 <div class="row">
     <div class="col-md-8">
 
-		<form action="index.php?page=admin-editar-cliente&admin=1&id=<?php echo $_GET['id']; ?>" method="POST">
-            <input type="hidden" name="id" id="id" value="<?php echo $_GET['id']; ?>" />
+		<form action="index.php?page=admin-nuevo-cliente&admin=1" method="POST">
             <div class="form-body">
 
                 <div class="row">
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label>CLIENTE/PACIENTE: </label> <input name="nombre" id="nombre" type="text" class="form-control" value="<?php echo getCampoCliente($_GET['id'], 'nombre'); ?>" placeholder="Nombre completo">
+                            <label>CLIENTE/PACIENTE: </label> <input name="nombre" id="nombre" type="text" class="form-control" placeholder="Nombre completo">
                         </div>
                     </div>
 
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label>EMAIL: </label> <input name="email" id="email" type="email" class="form-control" value="<?php echo getCampoCliente($_GET['id'], 'email'); ?>" placeholder="email@email.com">
+                            <label>EMAIL: </label> <input name="email" id="email" type="email" class="form-control" placeholder="email@email.com">
                         </div>
                     </div>
 
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label>CONTRASEÑA: </label> <input name="password" id="password" type="password" class="form-control" value="<?php echo getCampoCliente($_GET['id'], 'password'); ?>" placeholder="Nombre completo">
+                            <label>CONTRASEÑA: </label> <input name="password" id="password" type="password" class="form-control" placeholder="Contraseña">
                         </div>
                     </div>
                     
@@ -99,20 +109,20 @@
                         <div class="form-group">
                             <label>GENERO: </label> 
                             <select class="form-control" id="sexo" name="sexo">
-                                <option <?php if(getCampoCliente($_GET['id'], 'sexo') == "F"){ echo "selected"; } ?> value="F">FEMENINO</option>
-                                <option <?php if(getCampoCliente($_GET['id'], 'sexo') == "M"){ echo "selected"; } ?> value="M">MASCULINO</option>
+                                <option value="F">FEMENINO</option>
+                                <option value="M">MASCULINO</option>
                             </select>
                             
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label>FECHA DE NACIMIENTO: </label> <input type="text" id="fecha_nacimiento" name="fecha_nacimiento" class="form-control" value="<?php echo getCampoCliente($_GET['id'], 'fecha_nacimiento'); ?>" placeholder="Fecha de nacimiento">
+                            <label>FECHA DE NACIMIENTO: </label> <input type="text" id="fecha_nacimiento" name="fecha_nacimiento" class="form-control" placeholder="dd/mm/aaaa">
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label>CÉDULA/DOCUMENTO: </label> <input name="identificacion" id="identificacion" type="text" class="form-control" value="<?php echo getCampoCliente($_GET['id'], 'identificacion'); ?>" placeholder="Cédula/documento">
+                            <label>CÉDULA/DOCUMENTO: </label> <input name="identificacion" id="identificacion" type="text" class="form-control" placeholder="Cédula/documento">
                         </div>
                     </div>
                 </div>
@@ -122,8 +132,8 @@
                         <div class="form-group">
                             <label>AFILIADO A BODYTECH: </label>
                             <select class="form-control" id="afiliado" name="afiliado">
-                                <option <?php if(getCampoCliente($_GET['id'], 'afiliado') == "SI"){ echo "selected"; } ?> value="SI">SI</option>
-                                <option <?php if(getCampoCliente($_GET['id'], 'afiliado') == "NO"){ echo "selected"; } ?> value="NO">NO</option>
+                                <option value="SI">SI</option>
+                                <option value="NO">NO</option>
                             </select>
                         </div>
                     </div>
@@ -132,8 +142,8 @@
                         <div class="form-group">
                             <label>ESTADO DE AFILIACIÓN: </label>
                             <select class="form-control" id="estado" name="estado">
-                                <option <?php if(getCampoCliente($_GET['id'], 'estado') == "ACTIVO"){ echo "selected"; } ?> value="ACTIVO">ACTIVO</option>
-                                <option <?php if(getCampoCliente($_GET['id'], 'estado') == "INACTIVO"){ echo "selected"; } ?> value="INACTIVO">INACTIVO</option>
+                                <option value="ACTIVO">ACTIVO</option>
+                                <option value="INACTIVO">INACTIVO</option>
                             </select>
                         </div>
                     </div>
@@ -156,7 +166,7 @@
                                     // output data of each row
                                       while($row = $result->fetch_assoc()) {
                                         ?>
-                                        <option <?php if(getCampoCliente($_GET['id'], 'sede') == $row['sede']){ echo "selected"; } ?> value="<?php echo $row["sede"]; ?>"><?php echo $row["sede"]; ?></option>                                                             
+                                        <option value="<?php echo $row["sede"]; ?>"><?php echo $row["sede"]; ?></option>                                                             
 
                                         <?php
                                       }
@@ -176,10 +186,10 @@
                         <div class="form-group">
                             <label>PLAN: </label>
                             <select class="form-control" id="suscripcion" name="suscripcion">
-                                <option <?php if(getCampoCliente($_GET['id'], 'suscripcion') == "Nutricion Virtual"){ echo "selected"; } ?> value="Nutricion Virtual">Nutricion Virtual</option>
-                                <option <?php if(getCampoCliente($_GET['id'], 'suscripcion') == "Nutricion Virtual afiliado con personal training"){ echo "selected"; } ?> value="Nutricion Virtual afiliado con personal training">Nutricion Virtual afiliado con personal training</option>
-                                <option <?php if(getCampoCliente($_GET['id'], 'suscripcion') == "Bienestar y salud"){ echo "selected"; } ?> value="Bienestar y salud">Bienestar y salud</option>
-                                <option <?php if(getCampoCliente($_GET['id'], 'suscripcion') == "Control de Peso"){ echo "selected"; } ?> value="Control de Peso">Control de Peso</option>
+                                <option value="Nutricion Virtual">Nutricion Virtual</option>
+                                <option value="Nutricion Virtual afiliado con personal training">Nutricion Virtual afiliado con personal training</option>
+                                <option value="Bienestar y salud">Bienestar y salud</option>
+                                <option value="Control de Peso">Control de Peso</option>
                             </select>
                         </div>
                     </div>
@@ -188,8 +198,8 @@
                         <div class="form-group">
                             <label>PERSONAL TRAINING: </label>
                             <select class="form-control" id="personaltraining" name="personaltraining">
-                                <option <?php if(getCampoCliente($_GET['id'], 'personaltraining') == "SI"){ echo "selected"; } ?> value="SI">SI</option>
-                                <option <?php if(getCampoCliente($_GET['id'], 'personaltraining') == "NO"){ echo "selected"; } ?> value="NO">NO</option>
+                                <option value="SI">SI</option>
+                                <option value="NO">NO</option>
                             </select>
                         </div>
                     </div>

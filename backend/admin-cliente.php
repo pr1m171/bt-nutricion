@@ -1,4 +1,4 @@
-<?php include("tblClientes.php"); ?>
+
 <!-- End Sidebar navigation -->
             </div>
             <!-- End Sidebar scroll-->
@@ -55,6 +55,21 @@
                         <hr>
 
                         <button type="button" class="btn waves-effect waves-light btn-primary" onclick="window.location.href='index.php?page=admin-editar-cliente&admin=1&id=<?php echo $_GET['id']; ?>'">EDITAR</button>
+
+                        <button type="button" class="btn waves-effect waves-light btn-primary" onclick="eliminar()">ELIMINAR</button>
+                        <script>
+                            function eliminar(){
+                             
+
+                            var r = confirm("¿Desea eliminar este cliente/paciente?");
+                            if (r == true) {
+                                window.location.href='index.php?page=admin-eliminar-cliente&admin=1&id=<?php echo $_GET['id']; ?>'
+                            }
+                
+
+                                
+                            }
+                        </script>
 
                         <hr>
                         <br>

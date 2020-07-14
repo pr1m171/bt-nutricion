@@ -1,3 +1,4 @@
+
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <!-- User Profile-->
@@ -5,15 +6,15 @@
                             <!-- User Profile-->
                             <div class="user-profile dropdown m-t-20">
                                 <div class="user-pic">
-                                    <img src="assets/images/users/1.jpg" alt="users" class="rounded-circle img-fluid" />
+                                    <img src="assets/images/users/<?php echo getCampoNutricionistas($nutricionista, 'imagen'); ?>" alt="users" class="rounded-circle img-fluid" />
                                 </div>
                                 <div class="user-content hide-menu m-t-10">
-                                    <h5 class="m-b-10 user-name font-medium">Doctor Strange</h5>
+                                    <h5 class="m-b-10 user-name font-medium"><?php echo getCampoNutricionistas($nutricionista, 'nombre'); ?> <?php echo getCampoNutricionistas($nutricionista, 'apellido'); ?></h5>
 
-                                    <a href="javascript:void(0)" title="Configuración" class="btn btn-circle btn-sm">
+                                    <a href="index.php?page=config" title="Configuración" class="btn btn-circle btn-sm">
                                         <i class="ti-settings"></i>
                                     </a>
-                                    <a href="javascript:void(0)" title="Salir" class="btn btn-circle btn-sm">
+                                    <a href="index.php?page=salir" title="Salir" class="btn btn-circle btn-sm">
                                         <i class="ti-power-off"></i>
                                     </a>
 
@@ -115,7 +116,7 @@
 
 
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="#" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.php?page=salir" aria-expanded="false">
                                 <i class="mdi mdi-directions"></i>
                                 <span class="hide-menu">Salir</span>
                             </a>

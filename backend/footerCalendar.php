@@ -39,14 +39,13 @@
           lang: 'es',
           selectable: false,
           selectHelper: true,
-            minTime: "08:00:00",
-            maxTime: "21:00:00",
+            minTime: "06:00:00",
+            maxTime: "23:00:00",
             businessHours: {
               start: '07:00', // hora final
                   end: '20:00', // hora inicial
                   dow: [ 1, 2, 3, 4, 5,6 ] // dias de semana, 0=Domingo
           },
-
           select: function(start, end, allDay) {
             $('#fc_create').click();
 
@@ -114,8 +113,8 @@ if ($result->num_rows > 0) {
         title: '".$row['npaciente']. "',
         start: new Date(".$fecha[2].", ".$mes.", ".$fecha[0].", ".$hora[0].",".$hora[1].",00),
         end: new Date(".$fecha[2].", ".$mes.", ".$fecha[0].", ".$horas.",".$hora[1].",00),
-        backgroundColor: '#413f3f',
-        borderColor: '#413f3f',
+        backgroundColor: '#419af8',
+        borderColor: '#419af8',
         url: 'index.php?page=turno&id=".$row['idt']."'
       },
     ";

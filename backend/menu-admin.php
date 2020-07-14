@@ -10,12 +10,7 @@
                                 <div class="user-content hide-menu m-t-10">
                                     <h5 class="m-b-10 user-name font-medium">ADMINISTRADOR</h5>
 
-                                    <a href="javascript:void(0)" title="Configuración" class="btn btn-circle btn-sm">
-                                        <i class="ti-settings"></i>
-                                    </a>
-                                    <a href="javascript:void(0)" title="Salir" class="btn btn-circle btn-sm">
-                                        <i class="ti-power-off"></i>
-                                    </a>
+                                   
 
                                 </div>
                             </div>
@@ -44,7 +39,7 @@
 
 
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="#" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.php?page=salir" aria-expanded="false">
                                 <i class="mdi mdi-directions"></i>
                                 <span class="hide-menu">Salir</span>
                             </a>

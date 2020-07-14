@@ -1,5 +1,4 @@
-<?php include("tblClientes.php"); ?>
-<?php include("tblTurnos.php"); ?>
+
 <!-- End Sidebar navigation -->
             </div>
             <!-- End Sidebar scroll-->
@@ -51,18 +50,20 @@
 
 <div class="row">
     <div class="col-12">
-<h3 style="color:#eb5a2c; font-weight: bold;">ASIGNAR ALIMENTO A ESTE HORARIO:</h3><br>
+<h3 style="color:#eb5a2c; font-weight: bold; text-transform: uppercase;">ASIGNAR ALIMENTO.</h3>
+<h5 style="color:#eb5a2c; font-weight: bold; text-transform: uppercase;">HORARIO: &nbsp; <?php echo $_GET['hora']; ?> hs.<br>
+                                                                        DÍA: <?php echo $_GET['dia'] ?></h5><br>
         <div class="row">
             <div class="col-md-12">
                        <form class="m-t-30" method="POST" id="form" action="index.php?page=adddieta">
                             <div class="row">
                                 <div class="col-md-4">
 
-                                        <label for="detalle">Seleccionar detalle</label>
+                                        <label for="detalle">Seleccionar tipo de comida</label>
                                         <select class="form-control" id="detalle" name="detalle">
-                                            <option value="SUPLEMENTACIÓN">SUPLEMENTACIÓN</option>
+                                            <option value="SUPLEMENTO">SUPLEMENTO</option>
                                             <option value="DESAYUNO">DESAYUNO</option>
-                                            <option value="MEDIA MAÑANA">MEDIA MAÑANA</option>
+                                            <option value="COMIDA">COMIDA</option>
                                             <option value="ALMUERZO">ALMUERZO</option>
                                             <option value="MERIENDA">MERIENDA</option>
                                             <option value="CENA">CENA</option>
@@ -110,6 +111,16 @@
                                     </div>
                                     <div class="col-md-1"></div>
                                     <div class="col-md-6">
+                                        <div class="alerta">
+
+                                    <span id="close">x</span>
+
+                                    <h4>Preferencias del cliente:</h4>
+
+                                    <h6> - Alergias: <?php echo getCampoCliente( $_GET['usuario'], 'alergias'); ?></h6>
+                                    <h6> - Preferidos: <?php echo getCampoCliente( $_GET['usuario'], 'preferidos'); ?></h6>
+                                    <h6> - Rechazados: <?php echo getCampoCliente( $_GET['usuario'], 'alergias'); ?></h6>
+                                </div>
                                         <br>
                                         <label>(*)  Estos Valores corresponden a 100 gramos de cada alimento.</label><br>
                                     <table class="tablesaw table-striped table-hover table-bordered table no-wrap tablesaw-columntoggle" id="tabla">
@@ -122,6 +133,7 @@
                                                 <th>Proteínas</th>
                                                 <th>Grasas</th>
                                                 <th>Fibras</th>
+                                                <th>Cantidad Gr.</th>
                                                 <th></th>
                                             </tr>
                                         </thead>
@@ -136,6 +148,7 @@
                                                 <td id="proteinas">0</td>
                                                 <td id="grasas">0</td>
                                                 <td id="fibras">0</td>
+                                                <td id="totaliza"></td>
                                                 <td></td>
                                             </tr>
                                         </tfoot>
@@ -167,6 +180,30 @@
 
 <?php
 $extraScript = '
+<style>
+tr{
+  text-align: center;
+}
+.alerta{
+    background: #daeaf9;
+    padding: 10px;
+    border-radius: 5px;
+}
+.alerta span{
+    position: absolute;
+    top: 2px;
+    right: 18px;
+    cursor: pointer;
+}
+</style>
+<script>
+    $( document ).ready(function() {
+        $("#sidebarnav > li:nth-child(4)").addClass("selected");
+        $("#sidebarnav > li.sidebar-item.selected > ul").addClass("in");
+        $("#activo").addClass("active");
+        $("#mis-clientes").addClass("active");
+     });
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
 <script>
@@ -191,10 +228,13 @@ $(document).ready(function () {
       $("#alimento").selectize({
           sortField: "text"
       });
-
+      $("#close").click(function(e){
+            e.preventDefault();
+            $(".alerta").css("display","none");
+      });
         $("#add").click(function(e){
             e.preventDefault();
-            var url = "https://btnutricion.com/backend/getAlimentos.php?id=" + $( "#alimento option:selected" ).val();
+            var url = "getAlimentos.php?id=" + $( "#alimento option:selected" ).val();
             
             $.get(url, function(data, status){
 
@@ -213,6 +253,7 @@ $(document).ready(function () {
                 "<td>"+proteinas+"</td>" + 
                 "<td>"+grasas+"</td>" + 
                 "<td>"+fibras+"</td>" +
+                "<td><input type='."'number'".' class='."'form-control sumable'".' value='."'100'".' /></td>" + 
                 "<td><button class='."'btn btn-danger'".'><i class='."'sl-icon-trash'></i></button>".'</td></tr>";
 
                 $("#lista").append(item);
@@ -234,8 +275,21 @@ $(document).ready(function () {
 
         });
 
+
     
   });
+
+    $(document).on("keyup", ".sumable", function (e) {
+        var calo = $(this).parent().parent().find("td").eq(1).html();
+        var input = $(this).val();
+        var sum = 0;
+        $(".sumable").each(function(){
+        sum += parseFloat($(this).val());
+        });
+        $("#totaliza").html(sum);
+        var caloriasFinal = (input * calo) / 100;
+
+    });
 
   $(document).on("click", "td button", function (e) {
                 e.preventDefault();

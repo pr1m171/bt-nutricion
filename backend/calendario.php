@@ -42,7 +42,16 @@
             <!-- Container fluid  -->
             <!-- ============================================================== -->
             <div class="container-fluid">
-                                                        
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul class="referencias">
+                            <li class="pc">Primera cita.</li>
+                            <li class="sc">Segunda cita.</li>
+                            <li class="tc">Tercera cita.</li>
+                            <li class="cc">Cuarta cita.</li>
+                        </ul>
+                    </div>
+                </div>                                            
                 <div class="row">
                     <div class="col-md-12">
                         <div id='calendar'></div>

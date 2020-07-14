@@ -1,4 +1,4 @@
-<?php include("tblClientes.php"); ?>
+
 <!-- End Sidebar navigation -->
             </div>
             <!-- End Sidebar scroll-->
@@ -31,12 +31,14 @@
                         <h5 class="card-title"><b>SEDE:</b> <?php echo getCampoCliente($_GET['id'], 'sede'); ?></h5>
                         <h5 class="card-title"><b>PLAN:</b> <?php echo getCampoCliente($_GET['id'], 'suscripcion'); ?></h5>
                         <h5 class="card-title"><b>PERSONAL TRAINING:</b> <?php echo getCampoCliente($_GET['id'], 'personaltraining'); ?></h5>
+                        <h5 class="card-title"><b>Cédula:</b> <?php echo getCampoCliente($_GET['id'], 'identificacion'); ?></h5>
+                        <h5 class="card-title"><b>EPS:</b> <?php echo getCampoCliente($_GET['id'], 'seguromedico'); ?></h5>
 
                         <hr>
                         <h5 class="card-title"><b>INFORMACIÓN:</b></h5>
 
                                            
-                        <h5 class="card-title"><b>Cédula:</b> <?php echo getCampoCliente($_GET['id'], 'identificacion'); ?></h5>
+                        
                         <h5 class="card-title"><b>Genero:</b> <?php echo getCampoCliente($_GET['id'], 'sexo'); ?></h5>
                         <?php
 
@@ -54,7 +56,20 @@
                         
                         <hr>
 
-                        <button type="button" class="btn waves-effect waves-light btn-primary" onclick="window.location.href='index.php?page=dieta&id=<?php echo $_GET['id']; ?>'">VER DIETA ASIGNADA</button>
+                        <?php
+                            $mysql = new conex_mysql();
+                            $mysql->conectar();
+                            $sql = "select * from dieta where idPaciente='".$_GET['id']."'";
+                            $mysql_result = $mysql->consulta($sql);
+                            if ($mysql_result->num_rows > 0) {
+                                $txtDieta = "VER DIETA";
+                            }else{
+                                $txtDieta = "CREAR DIETA";
+                            }
+
+                        ?>
+
+                        <button type="button" class="btn waves-effect waves-light btn-primary" onclick="window.location.href='index.php?page=dieta&id=<?php echo $_GET['id']; ?>'"><?php echo $txtDieta; ?></button>
 
                         <hr>
                         <br>
@@ -187,11 +202,35 @@
     </div>
 
     <div class="tab-pane p-20" id="messages3" role="tabpanel">
+<?php
+        if (!empty($_POST)){
+
+            /** ACA VOY A GUARDAR LOS CAMBIOS CHAJARI **/
+
+            $mysql = new conex_mysql();
+            $mysql->conectar();
+
+            $mysql_result = $mysql->consulta('UPDATE clientes SET alergias="'.$_POST['alergias'].'", preferidos="'.$_POST['preferidos'].'", rechazados="'.$_POST['rechazados'].'", agua="'.$_POST['agua'].'", aguaenrena="'.$_POST['aguaentrena'].'", suplementacion="'.$_POST['suplementacion'].'", preparacion="'.$_POST['preparacion'].'" WHERE id="'.$_POST['cliente'].'"');
+
+            $mysql->salir();
+
+
+        }
+?>
+        <form action="index.php?page=cliente&id=<?php echo $_GET['id']; ?>" method="POST">
+            <input type="hidden" name="cliente" id="cliente" value="<?php echo $_GET['id']; ?>" />
+
         <h3 style="color:#eb5a2c; font-weight: bold;">ALIMENTOS:</h3><br>
         <div class="row">
-            <div class="col-md-12"><h5 class="card-title"><b>ALERGIAS:</b> <?php echo getCampoCliente($_GET['id'], 'alergias'); ?></h5></div>
-            <div class="col-md-12"><h5 class="card-title"><b>PREFERIDOS:</b> <?php echo getCampoCliente($_GET['id'], 'preferidos'); ?></h5></div>
-            <div class="col-md-12"><h5 class="card-title"><b>RECHAZADOS:</b> <?php echo getCampoCliente($_GET['id'], 'rechazados'); ?></h5></div>           
+            <div class="col-md-6"><h5 class="card-title"><b>ALERGIAS:</b> </h5>
+                <textarea name="alergias" id="alergias" class="form-control" rows="3"><?php echo getCampoCliente($_GET['id'], 'alergias'); ?> </textarea><br></div>
+            
+            <div class="col-md-6"><h5 class="card-title"><b>PREFERIDOS:</b> </h5>
+                <textarea name="preferidos" id="preferidos" class="form-control" rows="3"><?php echo getCampoCliente($_GET['id'], 'preferidos'); ?></textarea><br></div>
+           
+            <div class="col-md-6"><h5 class="card-title"><b>RECHAZADOS:</b> </h5>
+                <textarea name="rechazados" id="rechazados" class="form-control" rows="3"><?php echo getCampoCliente($_GET['id'], 'rechazados'); ?></textarea>
+            </div>           
         </div>
 
         <br><br><h3 style="color:#eb5a2c; font-weight: bold;">SUEÑO:</h3><br>
@@ -202,15 +241,41 @@
 
         <br><br><h3 style="color:#eb5a2c; font-weight: bold;">HIDRATACIÓN:</h3><br>
         <div class="row">
-            <div class="col-md-6"><h5 class="card-title"><b>VASOS DE AGUA DIARIOS:</b> <?php echo getCampoCliente($_GET['id'], 'agua'); ?></h5></div>
-            <div class="col-md-6"><h5 class="card-title"><b>HIDRATACIÓN DURANTE ENTRENAMIENTO:</b> <?php echo getCampoCliente($_GET['id'], 'aguaentrena'); ?></h5></div>
+            <div class="col-md-3"><h5 class="card-title"><b>CANTIDAD DE AGUA SUGERIDA:</b></h5>
+                <div class="col-md-4"><input type="text" class="form-control" name="agua" value="<?php echo getCampoCliente($_GET['id'], 'agua'); ?>" /></div>
+            </div>
+            <div class="col-md-4">
+                <h5 class="card-title"><b>HIDRATACIÓN DURANTE ENTRENAMIENTO:</b></h5>
+                <div class="col-md-4"><select name="aguaentrena" id="aguaentrena" class="form-control">
+                    <option value="SI" <?php if(getCampoCliente($_GET['id'], 'aguaentrena') == 'SI'){ echo "selected"; } ?>>SI</option>
+                    <option value="NO" <?php if(getCampoCliente($_GET['id'], 'aguaentrena') == 'NO'){ echo "selected"; } ?>>NO</option>
+                </select></div>
+            </div>
         </div>
 
         <br><br><h3 style="color:#eb5a2c; font-weight: bold;">DOSIFICACIÓN:</h3><br>
         <div class="row">
-            <div class="col-md-12"><h5 class="card-title"><b>SUMPLEMENTACIÓN Y MODO DE CONSUMO:</b> <?php echo getCampoCliente($_GET['id'], 'suplementacion'); ?></h5></div>
-            <div class="col-md-12"><h5 class="card-title"><b>QUIEN PREPARA Y COMPRA LOS ALIMENTOS:</b> <?php echo getCampoCliente($_GET['id'], 'preparacion'); ?></h5></div>
+
+            <div class="col-md-12"><br><br><h5 class="card-title"><b>SUMPLEMENTACIÓN Y MODO DE CONSUMO:</b></h5>
+                <textarea name="suplementacion" id="suplementacion" class="form-control" rows="3"><?php echo getCampoCliente($_GET['id'], 'suplementacion'); ?></textarea>
+            </div>
+
+            <div class="col-md-12">
+                <br><br><h5 class="card-title"><b>QUIEN PREPARA Y COMPRA LOS ALIMENTOS:</b></h5>
+                    <textarea name="preparacion" id="preparacion" class="form-control" rows="3"><?php echo getCampoCliente($_GET['id'], 'preparacion'); ?></textarea>
+            </div>
+
         </div>
+
+        <div class="form-actions">
+                <div class="text-right">
+                    <br><br><button type="submit" class="btn btn-info">Guardar</button>
+                </div>
+            </div>
+
+
+        </form>
+
 
     </div>
 </div>
@@ -229,6 +294,8 @@
 $extraScript = '
     <script>
     $( document ).ready(function() {
+        $("#sidebarnav > li:nth-child(4)").addClass("selected");
+        $("#sidebarnav > li.sidebar-item.selected > ul").addClass("in");
         $("#activo").addClass("active");
         $("#mis-clientes").addClass("active");
      });

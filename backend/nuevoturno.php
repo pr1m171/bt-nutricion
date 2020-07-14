@@ -1,5 +1,3 @@
-<?php include("tblClientes.php"); ?>
-<?php include("tblTurnos.php"); ?>
 <!-- End Sidebar navigation -->
             </div>
             <!-- End Sidebar scroll-->

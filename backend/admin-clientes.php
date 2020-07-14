@@ -47,6 +47,11 @@
 
 
 <div class="row">
+    <div class="col-md-12">
+        <button type="button" class="btn waves-effect waves-light btn-primary" onclick="window.location.href='index.php?page=admin-nuevo-cliente&amp;admin=1'">NUEVO CLIENTE</button>        
+    </div>
+    <div class="col-md-12" style="margin-top:15px;"></div>
+
 	<div class="col-12">
 		<div class="table-responsive">
 			<table id="zero_config" class="table table-striped table-bordered">

@@ -14817,3 +14817,71 @@ File: scss
   object-fit: cover;
   object-position: top left;
 }
+
+
+.referencias{
+  display: block;
+  list-style: none;
+  margin-bottom: 35px;
+}
+.referencias li{
+  display: inline;
+  margin-left: 30px;
+  font-weight: 400;
+}
+
+.pc:before{
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: #419af8;
+    border-radius: 100%;
+    margin-left: -20px;
+    margin-top: 2px;
+}
+
+.sc:before{
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: #11d9b2;
+    border-radius: 100%;
+    margin-left: -20px;
+    margin-top: 2px;
+}
+
+.tc:before{
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: #fd606b;
+    border-radius: 100%;
+    margin-left: -20px;
+    margin-top: 2px;
+}
+
+.cc:before{
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: #ffbe31;
+    border-radius: 100%;
+    margin-left: -20px;
+    margin-top: 2px;
+}
+
+.miblock{
+    background: #ebf0f3;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.editarHora{
+  cursor: pointer;
+  
+}
