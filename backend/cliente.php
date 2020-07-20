@@ -207,11 +207,11 @@
         if (!empty($_POST)){
 
             /** ACA VOY A GUARDAR LOS CAMBIOS CHAJARI **/
-
+            
             $mysql = new conex_mysql();
             $mysql->conectar();
 
-            $mysql_result = $mysql->consulta('UPDATE clientes SET alergias="'.$_POST['alergias'].'", preferidos="'.$_POST['preferidos'].'", rechazados="'.$_POST['rechazados'].'", agua="'.$_POST['agua'].'", aguaenrena="'.$_POST['aguaentrena'].'", suplementacion="'.$_POST['suplementacion'].'", preparacion="'.$_POST['preparacion'].'" WHERE id="'.$_POST['cliente'].'"');
+            $mysql_result = $mysql->consulta('UPDATE clientes SET alergias="'.$_POST['alergias'].'", preferidos="'.$_POST['preferidos'].'", rechazados="'.$_POST['rechazados'].'", agua="'.$_POST['agua'].'", aguaentrena="'.$_POST['aguaentrena'].'", suplementacion="'.$_POST['suplementacion'].'", preparacion="'.$_POST['preparacion'].'" WHERE id="'.$_POST['cliente'].'"');
 
             $mysql->salir();
 
@@ -246,7 +246,7 @@
                 <div class="col-md-6"><input type="text" class="form-control" name="agua" value="<?php echo getCampoCliente($_GET['id'], 'agua'); ?>" /></div>
             </div>
             <div class="col-md-6">
-                <h5 class="card-title"><b>HIDRATACIÓN DURANTE ENTRENAMIENTO:</b></h5>
+                <h5 class="card-title"><b>HIDRATACIÓN DURANTE ENTRENAMIETNO:</b></h5>
                 <div class="col-md-6"><select name="aguaentrena" id="aguaentrena" class="form-control">
                     <option value="SI" <?php if(getCampoCliente($_GET['id'], 'aguaentrena') == 'SI'){ echo "selected"; } ?>>SI</option>
                     <option value="NO" <?php if(getCampoCliente($_GET['id'], 'aguaentrena') == 'NO'){ echo "selected"; } ?>>NO</option>
