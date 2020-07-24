@@ -55,7 +55,14 @@
                 $mysql = new conex_mysql();
                 $mysql->conectar();
 
-                $mysql_result = $mysql->consulta('UPDATE nutricionista SET nombre="'.$_POST['nombre'].'", apellido="'.$_POST['apellido'].'", sexo="'.$_POST['sexo'].'", email="'.$_POST['email'].'", cedula="'.$_POST['identificacion'].'", telefono="'.$_POST['telefono'].'" WHERE id="'.$nutricionista.'"');
+                if ( 0 < $_FILES['file']['error'] ) {
+                    $mysql_result = $mysql->consulta('UPDATE nutricionista SET nombre="'.$_POST['nombre'].'", apellido="'.$_POST['apellido'].'", sexo="'.$_POST['sexo'].'", email="'.$_POST['email'].'", cedula="'.$_POST['identificacion'].'", telefono="'.$_POST['telefono'].'" WHERE id="'.$nutricionista.'"');
+                }
+                else {
+                    move_uploaded_file($_FILES['file']['tmp_name'], 'media/uploads/' . $nutricionista . $_FILES['file']['name']);
+                    $imagen = $nutricionista . $_FILES['file']['name'];
+                    $mysql_result = $mysql->consulta('UPDATE nutricionista SET nombre="'.$_POST['nombre'].'", apellido="'.$_POST['apellido'].'", sexo="'.$_POST['sexo'].'", email="'.$_POST['email'].'", cedula="'.$_POST['identificacion'].'", telefono="'.$_POST['telefono'].'", imagen="'.$imagen.'" WHERE id="'.$nutricionista.'"');
+                }
 
                 $mysql->salir();
 
@@ -68,10 +75,17 @@
 <div class="row">
     <div class="col-md-8">
 
-        <form action="index.php?page=profile" method="POST">
+        <form action="index.php?page=profile" method="POST" enctype="multipart/form-data">
             <div class="form-body">
 
                 <div class="row">
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Imagen de perfil: </label><input type="file" name="file" id="file">
+                        </div>
+                    </div>
+                    <div class="col-md-8"></div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>NOMBRE: </label> <input name="nombre" id="nombre" type="text" class="form-control" value="<?php echo getCampoNutricionistas($nutricionista, 'nombre'); ?>" placeholder="Nombre">

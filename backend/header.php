@@ -212,7 +212,7 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true"
                                aria-expanded="false">
-                                <img src="assets/images/users/<?php echo getCampoNutricionistas($nutricionista, 'imagen'); ?>" alt="user" class="rounded-circle" width="31">
+                                <img src="media/uploads/<?php echo getCampoNutricionistas($nutricionista, 'imagen'); ?>" alt="user" class="rounded-circle" width="31">
                             </a>
                             <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
                                             <span class="with-arrow">
