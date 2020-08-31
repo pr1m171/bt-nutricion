@@ -3,7 +3,7 @@
 	/*ini_set('display_errors', '1');
 	ini_set('display_startup_errors', '1');
 	error_reporting(E_ALL);*/
-    //Librerias axiliares
+    //Librerias auxiliares
     include("conexion.php"); 
     if(empty($_SESSION['usuario'])){
         if (!empty($_POST)){
